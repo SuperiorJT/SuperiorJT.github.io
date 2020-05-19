@@ -1,0 +1,6 @@
+<figure style="text-align: center">
+    <video src="{{ include.src }}" playsinline autoplay muted loop></video>
+    {% if include.caption %}
+        <figcaption><em>{{ include.caption }}</em></figcaption>
+    {% endif %}
+</figure>
