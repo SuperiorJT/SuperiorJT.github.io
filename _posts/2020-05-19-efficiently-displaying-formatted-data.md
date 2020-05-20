@@ -44,7 +44,7 @@ export class MyComponent {
 	}
 }
 ```
-This works! The component will run the function and render only the first name. This is a very easy way to display our data formatted in the way we would like. However there are some caveats.
+This works! The component will run the function and render only the first name. This is a very easy way to display our data formatted in the way we would like. However, there are some caveats.
 
 #### Change Detection
 It is important to keep in mind how often change detection is being triggered. Usually, your components will use one of 2 types of change detection:
@@ -52,14 +52,14 @@ It is important to keep in mind how often change detection is being triggered. U
 * `Default`
 * `OnPush`
 
-**`Default`** change detection is eager. It will always check for changes if anything happens. When change detection occurs, Angular will run all function expressions even if the data provided to those functions hasn't changed. It does this to compare against the previous value so that it knows if a change has occured and should be rendered.
+**`Default`** change detection is eager. It will always check for changes if anything happens. When change detection occurs, Angular will run all function expressions even if the data provided to those functions hasn't changed. It does this to compare against the previous value so that it knows if a change has occurred and should be rendered.
 
 {% include video_figure.html
 	src="/assets/posts/2020-05-19-displaying-formatted-data-efficiently/Unintended CD Trigger.mp4"
 	caption="Changing a non-rendered input causes two CD triggers because we are in developer mode"
 %}
 
-For this example, it's not that big of a deal. We are just yanking out the first name from our string. This is not costly at all. But imagine a table of users where every field needs to be formatted in a similar or slightly more costly fasion. With a large number of entries, we can see this becoming an issue of performance where simply scrolling the page can cause jank.
+For this example, it's not that big of a deal. We are just yanking out the first name from our string. This is not costly at all. But imagine a table of users where every field needs to be formatted in a similar or slightly more costly fashion. With a large number of entries, we can see this becoming an issue of performance where simply scrolling the page can cause jank.
 
 **`OnPush`** change detection more explicit on when change detection occurs. As of Angular v9, it only performs change detection on the component if:
 
